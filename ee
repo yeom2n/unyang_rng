@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>운양고등학교 2학년 2학기 영어2 말하기 수행평가 안내</title>
+<style>
+  :root {
+    --bg: #f8faf9;
+    --card-bg: #ffffff;
+    --ink: #1e2923;
+    --sub: #64748b;
+    --line: #e2e8f0;
+    --accent: #1f5e43;
+    --accent-light: #e8f5e9;
+    --accent-hover: #14422e;
+    --badge-bg: #f1f5f9;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --radius: 14px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1715;
+      --card-bg: #18221f;
+      --ink: #f1f5f9;
+      --sub: #94a3b8;
+      --line: #273530;
+      --accent: #4ade80;
+      --accent-light: #162e21;
+      --accent-hover: #22c55e;
+      --badge-bg: #1e2923;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  /* Header Section */
+  .header { text-align: center; margin-bottom: 28px; }
+  .school-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  h1 { font-size: 1.45rem; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .desc { color: var(--sub); font-size: 0.9rem; margin: 0; }
+
+  /* D-Day Banner */
+  .dday-card {
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: #ffffff;
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+  }
+  .dday-info { display: flex; flex-direction: column; }
+  .dday-title { font-size: 0.85rem; opacity: 0.9; margin-bottom: 4px; }
+  .dday-date { font-size: 1.05rem; font-weight: 700; }
+  .dday-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    backdrop-filter: blur(4px);
+    text-align: center;
+  }
+
+  /* 리로스쿨 과제 제출 버튼 */
+  .riro-link-btn {
+    display: inline-block;
+    padding: 7px 12px;
+    background: #ffffff;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+  .riro-link-btn:hover {
+    background: #f1f5f9;
+    transform: translateY(-1px);
+  }
+
+  /* Navigation Tabs */
+  .tabs {
+    display: flex;
+    gap: 6px;
+    border-bottom: 2px solid var(--line);
+    margin-bottom: 24px;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    background: none;
+    color: var(--sub);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+  }
+  .tab-btn.active { color: var(--accent); }
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 3px 3px 0 0;
+  }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* Class Selector & Search */
+  .search-box {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+  }
+  .search-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card-bg);
+    color: var(--ink);
+    font-size: 0.9rem;
+    outline: none;
+  }
+  .search-input:focus { border-color: var(--accent); }
+
+  .picker { display: flex; gap: 8px; margin-bottom: 18px; overflow-x: auto; padding-bottom: 4px; }
+  .picker button {
+    flex: 1;
+    min-width: 60px;
+    padding: 8px 0;
+    border: 1px solid var(--line);
+    background: var(--card-bg);
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .picker button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* Table Style */
+  .list-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .row:last-child { border-bottom: none; }
+  .row .class-badge {
+    font-size: 0.78rem;
+    padding: 3px 8px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 700;
+    border-radius: 6px;
+    margin-right: 12px;
+  }
+  .row .order { width: 60px; font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+  .row .no { width: 75px; color: var(--sub); font-size: 0.88rem; }
+  .row .name { font-weight: 600; flex: 1; }
+
+  /* Accordion Info */
+  .accordion { margin-bottom: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--card-bg); overflow: hidden; }
+  .acc-header {
+    padding: 16px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .acc-body { padding: 0 20px 20px; display: none; font-size: 0.92rem; line-height: 1.65; color: var(--ink); }
+  .accordion.open .acc-body { display: block; }
+  .accordion.open .acc-header { border-bottom: 1px solid var(--line); color: var(--accent); }
+
+  /* Checklist Block */
+  .checklist-card {
+    background: var(--accent-light);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .checklist-title { font-weight: 700; font-size: 1rem; margin: 0 0 14px; color: var(--accent); }
+  .check-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; font-size: 0.88rem; cursor: pointer; line-height: 1.4; }
+  .check-item input { accent-color: var(--accent); width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; }
+
+  /* Rubric Table */
+  table.rubric { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 8px; }
+  table.rubric th, table.rubric td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; }
+  table.rubric th { background: var(--badge-bg); font-weight: 700; }
+  table.rubric td.score { text-align: center; font-weight: bold; width: 45px; }
+
+  /* PDF Card UI */
+  .pdf-step-card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .pdf-step-title {
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pdf-step-badge {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+  .pdf-step-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .kbd {
+    background: var(--badge-bg);
+    border: 1px solid var(--line);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-family: monospace;
+    font-size: 0.82rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="header">
+    <span class="school-tag">운양고등학교 2학년</span>
+    <h1>영어2 말하기 수행평가 안내</h1>
+    <p class="desc">영어 지문 분석 보고서 제출 및 발표 안내 대시보드</p>
+  </div>
+
+  <!-- D-Day Banner & 리로스쿨 제출 버튼 -->
+  <div class="dday-card">
+    <div class="dday-info">
+      <span class="dday-title">보고서 제출 마감 (리로스쿨)</span>
+      <span class="dday-date">2026. 10. 11 (일) 23:55까지</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+      <div class="dday-badge" id="ddayContainer">D-Day</div>
+      <a href="https://unyang.riroschool.kr/portfolio.php?action=list&db=1551&cate=546" target="_blank" class="riro-link-btn">
+        리로스쿨 과제 제출 링크 ↗
+      </a>
+    </div>
+  </div>
+
+  <!-- 탭 메뉴 -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('guide')">수행평가 안내</button>
+    <button class="tab-btn" onclick="switchTab('order')">발표 순서 조회</button>
+    <button class="tab-btn" onclick="switchTab('pdf')">PDF 변환 방법</button>
+  </div>
+
+  <!-- Panel 1: 수행평가 안내 -->
+  <div id="panel-guide" class="panel active">
+    
+    <div class="accordion open">
+      <div class="acc-header" onclick="toggleAcc(this)">1. 평가 일정 및 주요 내용 <span>▼</span></div>
+      <div class="acc-body">
+        <ul>
+          <li><strong>발표 일시:</strong> 2026년 10월 12일(월) ~ 10월 16일(금) 영어 수업 시간 중</li>
+          <li><strong>평가 주제:</strong> 영어 지문 분석 보고서 작성 및 구두 발표</li>
+          <li><strong>제출 기한:</strong> 2026년 10월 11일(일) 23:55까지</li>
+          <li><strong>제출 방법:</strong> PDF 파일 변환 후 리로스쿨 제출</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion open">
+      <div class="acc-header" onclick="toggleAcc(this)">2. 필수 포함 항목 (보고서/발표 공통) <span>▼</span></div>
+      <div class="acc-body">
+        <p style="margin-top:5px; color:#d97706; font-size:0.85rem; font-weight:600;">⚠️ 항목 부족 시 감점 처리됩니다.</p>
+        <ol>
+          <li>지문 내용의 정확한 해석 및 문장 구조 분석</li>
+          <li>중요 어법 1개 이상 설명</li>
+          <li>지문 속 핵심 어휘 설명</li>
+          <li>지문 주제 내용 요약 및 자신의 말로 보충 설명</li>
+          <li>지문의 내용을 이해하는 수능 유형 문제 1개 제작 및 제시</li>
+          <li>적당한 속도를 유지하며 명확하게 발표</li>
+          <li>보고서 양식 및 필수 항목 조건 준수</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion open">
+      <div class="acc-header" onclick="toggleAcc(this)">3. 채점 기준 <span>▼</span></div>
+      <div class="acc-body">
+        <table class="rubric">
+          <thead>
+            <tr>
+              <th>평가요소</th>
+              <th>수행 수준</th>
+              <th>배점</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4"><strong>보고서 내용<br>(10점)</strong></td>
+              <td>핵심 내용 관련 탐구 내용을 충실히 제시, 적절한 근거로 구체적으로 전개</td>
+              <td class="score">10</td>
+            </tr>
+            <tr>
+              <td>탐구 내용을 제시하고 근거를 활용하여 적절히 전개</td>
+              <td class="score">8</td>
+            </tr>
+            <tr>
+              <td>탐구 내용은 제시했으나 분석·근거 제시가 다소 부족</td>
+              <td class="score">6</td>
+            </tr>
+            <tr>
+              <td>탐구 내용이 일부만 제시, 분석·근거 미흡</td>
+              <td class="score">4</td>
+            </tr>
+            <tr>
+              <td rowspan="4"><strong>보고서 구성<br>(10점)</strong></td>
+              <td>형식·작성 조건을 충실히 갖추고 체계적으로 구성, 완성도 높음</td>
+              <td class="score">10</td>
+            </tr>
+            <tr>
+              <td>형식·작성 조건을 갖추고 적절하게 구성</td>
+              <td class="score">8</td>
+            </tr>
+            <tr>
+              <td>기본 형식은 갖췄으나 구성·연결이 다소 미흡</td>
+              <td class="score">6</td>
+            </tr>
+            <tr>
+              <td>형식이나 구성이 미흡하여 완성도 부족</td>
+              <td class="score">4</td>
+            </tr>
+            <tr>
+              <td rowspan="4"><strong>발표 및 동료평가<br>(5점)</strong></td>
+              <td>명확하게 전달, 적극적으로 참여, 동료평가지 성실히 작성·제출</td>
+              <td class="score">5</td>
+            </tr>
+            <tr>
+              <td>대체로 전달, 참여, 동료평가지 작성·제출</td>
+              <td class="score">4</td>
+            </tr>
+            <tr>
+              <td>전달·참여가 다소 미흡하나 동료평가지 작성·제출</td>
+              <td class="score">3</td>
+            </tr>
+            <tr>
+              <td>발표하지 않고 경청만 함, 동료평가지 작성·제출</td>
+              <td class="score">2</td>
+            </tr>
+            <tr>
+              <td colspan="2">수행활동에 참여했으나 평가요소를 모두 만족하지 못한 경우 (기본점수)</td>
+              <td class="score">10</td>
+            </tr>
+            <tr>
+              <td colspan="2">장기미인정결석, 백지 활동지 제출, 자발적 미응시 (기본점수의 차하점)</td>
+              <td class="score">9</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 체크리스트 -->
+    <div class="checklist-card">
+      <h3 class="checklist-title">제출 전, 마지막으로 확인하세요</h3>
+      <div id="checkList">
+        <label class="check-item"><input type="checkbox" onchange="saveCheck(0)"> 지문 해석 + 문장 구조 분석을 포함했나요?</label>
+        <label class="check-item"><input type="checkbox" onchange="saveCheck(1)"> 수능 유형 문제를 1개 제시했나요?</label>
+        <label class="check-item"><input type="checkbox" onchange="saveCheck(2)"> 중요 어법을 1개 이상 설명했나요?</label>
+        <label class="check-item"><input type="checkbox" onchange="saveCheck(3)"> 적당한 속도로 원고를 보지 않고 말할 준비가 됐나요?</label>
+        <label class="check-item"><input type="checkbox" onchange="saveCheck(4)"> 지문 속 어휘를 설명했나요?</label>
+        <label class="check-item"><input type="checkbox" onchange="saveCheck(5)"> 보고서 형식에 맞춰 필수 항목을 정리했나요?</label>
+        <label class="check-item"><input type="checkbox" onchange="saveCheck(6)"> 지문 내용을 자신의 말로 요약·보충했나요?</label>
+        <label class="check-item"><input type="checkbox" onchange="saveCheck(7)"> 워드 파일을 PDF로 변환해 리로스쿨에 제출했나요?</label>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Panel 2: 발표 순서 조회 -->
+  <div id="panel-order" class="panel">
+    <div class="search-box">
+      <input type="text" id="searchInput" class="search-input" placeholder="전체 학급 대상 이름 또는 학번 검색 (예: 윤여민, 20120)" onkeyup="filterList()">
+    </div>
+    <div class="picker" id="classPicker">
+      <button class="active" onclick="selectClass(1)">1반</button>
+      <button onclick="selectClass(2)">2반</button>
+      <button onclick="selectClass(3)">3반</button>
+      <button onclick="selectClass(4)">4반</button>
+      <button onclick="selectClass(5)">5반</button>
+    </div>
+    <div class="list-card" id="studentList">
+      <!-- JavaScript 동적 생성 -->
+    </div>
+  </div>
+
+  <!-- Panel 3: PDF 변환 방법 -->
+  <div id="panel-pdf" class="panel">
+    <div style="margin-bottom: 20px;">
+      <h2 style="font-size: 1.15rem; margin: 0 0 6px;">한글 문서를 PDF로 만들어 제출하기</h2>
+      <p style="margin: 0; color: var(--sub); font-size: 0.88rem;">과제는 PDF 파일로 제출합니다. 아래 세 가지 방법 중 편한 한 가지를 선택하여 저장하세요.</p>
+    </div>
+
+    <!-- 방법 1 -->
+    <div class="pdf-step-card">
+      <div class="pdf-step-title">
+        <span class="pdf-step-badge">방법 1</span> 파일 메뉴에서 PDF로 저장하기
+      </div>
+      <ol class="pdf-step-list">
+        <li>왼쪽 상단 <strong>[파일]</strong> 메뉴를 클릭합니다.</li>
+        <li>목록에서 <strong>[PDF로 저장하기(F)...]</strong>를 누릅니다.</li>
+        <li>저장할 위치와 파일 이름을 정하고 저장합니다.</li>
+      </ol>
+    </div>
+
+    <!-- 방법 2 -->
+    <div class="pdf-step-card">
+      <div class="pdf-step-title">
+        <span class="pdf-step-badge">방법 2</span> 단축키로 파일 형식 변경하기
+      </div>
+      <ol class="pdf-step-list">
+        <li>단축키 <span class="kbd">Alt</span> + <span class="kbd">V</span> 를 누릅니다. (파일 → 다른 이름으로 저장하기)</li>
+        <li>아래쪽 <strong>[파일 형식]</strong> 드롭다운을 클릭합니다.</li>
+        <li><strong>PDF, PDF/A 문서 (*.pdf)</strong>를 선택한 뒤 파일 이름을 확인하고 저장합니다.</li>
+      </ol>
+    </div>
+
+    <!-- 방법 3 -->
+    <div class="pdf-step-card">
+      <div class="pdf-step-title">
+        <span class="pdf-step-badge">방법 3</span> 인쇄 기능으로 PDF 저장하기
+      </div>
+      <ol class="pdf-step-list">
+        <li>단축키 <span class="kbd">Alt</span> + <span class="kbd">P</span> 를 눌러 인쇄 창을 엽니다.</li>
+        <li>프린터 선택에서 <strong>Microsoft Print to PDF</strong> 또는 <strong>Hancom PDF</strong>를 선택합니다.</li>
+        <li>오른쪽 상단 <strong>[인쇄(D)]</strong> 버튼을 누릅니다.</li>
+        <li>저장 창이 나오면 위치와 파일 이름을 정한 뒤 저장합니다.</li>
+      </ol>
+    </div>
+
+    <!-- 제출 전 유의사항 -->
+    <div class="checklist-card" style="background: #fff8f6; border: 1px solid #fee2e2;">
+      <h3 class="checklist-title" style="color: #dc2626;">제출하기 전에 꼭 확인하세요!</h3>
+      <ul style="margin: 0; padding-left: 20px; font-size: 0.88rem; line-height: 1.6; color: #991b1b;">
+        <li><strong>파일 확장자 확인:</strong> 파일 이름 끝이 <strong>.pdf</strong> 인지 확인하세요. (<span style="text-decoration: line-through;">.hwp</span>, <span style="text-decoration: line-through;">.hwpx</span> 파일은 제출 불가)</li>
+        <li><strong>파일 내용 확인:</strong> 저장한 PDF를 직접 열어보아 글자가 깨지거나 빠진 페이지가 없는지 미리 점검하세요.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // D-Day 연산 함수 (자정 단위 정밀 연산)
+  function calcDday() {
+    const target = new Date("2026-10-11T23:55:00");
+    const now = new Date();
+    
+    // 현재 날짜와 목표 날짜의 자정(00:00:00) 기준 일수 차이 계산
+    const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const targetMidnight = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+    
+    const diffDays = Math.round((targetMidnight - todayMidnight) / (1000 * 60 * 60 * 24));
+    
+    const container = document.getElementById("ddayContainer");
+    
+    if (diffDays > 0) {
+      container.innerText = `D-${diffDays}`;
+    } else if (diffDays === 0) {
+      container.innerText = "D-DAY";
+    } else {
+      container.innerText = "마감됨";
+    }
+  }
+  calcDday();
+  setInterval(calcDday, 3600000); // 1시간마다 주기적 업데이트
+
+  // 탭 전환 함수
+  function switchTab(tabName) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    
+    if(tabName === 'guide') {
+      document.querySelectorAll('.tab-btn')[0].classList.add('active');
+      document.getElementById('panel-guide').classList.add('active');
+    } else if(tabName === 'order') {
+      document.querySelectorAll('.tab-btn')[1].classList.add('active');
+      document.getElementById('panel-order').classList.add('active');
+    } else if(tabName === 'pdf') {
+      document.querySelectorAll('.tab-btn')[2].classList.add('active');
+      document.getElementById('panel-pdf').classList.add('active');
+    }
+  }
+
+  // 아코디언 접기/펴기
+  function toggleAcc(el) {
+    const parent = el.parentElement;
+    parent.classList.toggle('open');
+  }
+
+  // 1반 ~ 5반 전체 발표 순서 데이터
+  const classData = {
+    1: [
+      { order: 1, no: "20120", name: "윤여민" }, { order: 2, no: "20113", name: "성은성" },
+      { order: 3, no: "20131", name: "황유진" }, { order: 4, no: "20129", name: "주희정" },
+      { order: 5, no: "20118", name: "유정연" }, { order: 6, no: "20110", name: "김태우" },
+      { order: 7, no: "20122", name: "이소영" }, { order: 8, no: "20124", name: "이찬희" },
+      { order: 9, no: "20106", name: "김민영" }, { order: 10, no: "20108", name: "김재인" },
+      { order: 11, no: "20112", name: "서아영" }, { order: 12, no: "20115", name: "신동우" },
+      { order: 13, no: "20125", name: "이채은" }, { order: 14, no: "20126", name: "이태휘" },
+      { order: 15, no: "20121", name: "이도연" }, { order: 16, no: "20132", name: "황혜원" },
+      { order: 17, no: "20128", name: "정호연" }, { order: 18, no: "20127", name: "정예슬" },
+      { order: 19, no: "20109", name: "김태영" }, { order: 20, no: "20102", name: "권시원" },
+      { order: 21, no: "20107", name: "김예린" }, { order: 22, no: "20117", name: "오윤성" },
+      { order: 23, no: "20116", name: "심서현" }, { order: 24, no: "20130", name: "최수빈" },
+      { order: 25, no: "20101", name: "강윤서" }, { order: 26, no: "20103", name: "김강민" },
+      { order: 27, no: "20114", name: "송지인" }, { order: 28, no: "20119", name: "윤다경" },
+      { order: 29, no: "20104", name: "김기빈" }, { order: 30, no: "20111", name: "김현조" },
+      { order: 31, no: "20105", name: "김도근" }
+    ],
+    2: [
+      { order: 1, no: "20232", name: "황주상" }, { order: 2, no: "20206", name: "김명후" },
+      { order: 3, no: "20219", name: "윤각현" }, { order: 4, no: "20217", name: "유지안" },
+      { order: 5, no: "20218", name: "유지후" }, { order: 6, no: "20202", name: "고승현" },
+      { order: 7, no: "20209", name: "김하진" }, { order: 8, no: "20210", name: "박민준" },
+      { order: 9, no: "20214", name: "손채아" }, { order: 10, no: "20221", name: "윤지우" },
+      { order: 11, no: "20205", name: "김단" }, { order: 12, no: "20229", name: "한예원" },
+      { order: 13, no: "20220", name: "윤상국" }, { order: 14, no: "20222", name: "이수인" },
+      { order: 15, no: "20216", name: "오시헌" }, { order: 16, no: "20228", name: "텅호연" },
+      { order: 17, no: "20230", name: "현소윤" }, { order: 18, no: "20204", name: "김다은" },
+      { order: 19, no: "20226", name: "정현욱" }, { order: 20, no: "20223", name: "이하음" },
+      { order: 21, no: "20212", name: "박지용" }, { order: 22, no: "20201", name: "강소을" },
+      { order: 23, no: "20208", name: "김애경" }, { order: 24, no: "20207", name: "김서연" },
+      { order: 25, no: "20224", name: "전지우" }, { order: 26, no: "20227", name: "조호성" },
+      { order: 27, no: "20213", name: "배수연" }, { order: 28, no: "20203", name: "권도현" },
+      { order: 29, no: "20215", name: "송채은" }, { order: 30, no: "20231", name: "홍예린" },
+      { order: 31, no: "20225", name: "정주용" }, { order: 32, no: "20211", name: "박서연" }
+    ],
+    3: [
+      { order: 1, no: "20312", name: "박지훈" }, { order: 2, no: "20315", name: "서지원" },
+      { order: 3, no: "20328", name: "채지우" }, { order: 4, no: "20311", name: "박세은" },
+      { order: 5, no: "20330", name: "최이레" }, { order: 6, no: "20307", name: "김민정" },
+      { order: 7, no: "20326", name: "정해원" }, { order: 8, no: "20301", name: "권하은" },
+      { order: 9, no: "20318", name: "이서현" }, { order: 10, no: "20308", name: "김은선" },
+      { order: 11, no: "20321", name: "이지후" }, { order: 12, no: "20323", name: "정우현" },
+      { order: 13, no: "20309", name: "김희연" }, { order: 14, no: "20327", name: "조성호" },
+      { order: 15, no: "20313", name: "박진형" }, { order: 16, no: "20304", name: "김도현" },
+      { order: 17, no: "20306", name: "김미르" }, { order: 18, no: "20316", name: "신다경" },
+      { order: 19, no: "20332", name: "허민규" }, { order: 20, no: "20310", name: "박경민" },
+      { order: 21, no: "20325", name: "정해솔" }, { order: 22, no: "20322", name: "이하은" },
+      { order: 23, no: "20303", name: "김도원" }, { order: 24, no: "20319", name: "이소율" },
+      { order: 25, no: "20302", name: "김다윤" }, { order: 26, no: "20329", name: "최성현" },
+      { order: 27, no: "20320", name: "이예진" }, { order: 28, no: "20317", name: "양환희" },
+      { order: 29, no: "20305", name: "김라희" }, { order: 30, no: "20324", name: "정재헌" },
+      { order: 31, no: "20314", name: "방진화" }
+    ],
+    4: [
+      { order: 1, no: "20433", name: "홍효민" }, { order: 2, no: "20402", name: "김가인" },
+      { order: 3, no: "20411", name: "박용재" }, { order: 4, no: "20406", name: "김도현" },
+      { order: 5, no: "20405", name: "김담희" }, { order: 6, no: "20429", name: "전해인" },
+      { order: 7, no: "20422", name: "우하균" }, { order: 8, no: "20407", name: "김도희" },
+      { order: 9, no: "20423", name: "이근준" }, { order: 10, no: "20420", name: "양영빈" },
+      { order: 11, no: "20421", name: "오현서" }, { order: 12, no: "20431", name: "정봄" },
+      { order: 13, no: "20410", name: "문주원" }, { order: 14, no: "20424", name: "이다혁" },
+      { order: 15, no: "20417", name: "신수인" }, { order: 16, no: "20412", name: "박진평" },
+      { order: 17, no: "20428", name: "장예원" }, { order: 18, no: "20409", name: "노서준" },
+      { order: 19, no: "20403", name: "김강우" }, { order: 20, no: "20414", name: "박현우" },
+      { order: 21, no: "20416", name: "신성민" }, { order: 22, no: "20432", name: "조수빈" },
+      { order: 23, no: "20425", name: "이서윤" }, { order: 24, no: "20415", name: "방소희" },
+      { order: 25, no: "20430", name: "정다현" }, { order: 26, no: "20404", name: "김다울" },
+      { order: 27, no: "20426", name: "이윤지" }, { order: 28, no: "20427", name: "임혁" },
+      { order: 29, no: "20408", name: "김준성" }, { order: 30, no: "20419", name: "안여진" },
+      { order: 31, no: "20418", name: "신지욱" }
+    ],
+    5: [
+      { order: 1, no: "20524", name: "임지민" }, { order: 2, no: "20528", name: "조예윤" },
+      { order: 3, no: "20518", name: "심다윤" }, { order: 4, no: "20503", name: "권수영" },
+      { order: 5, no: "20515", name: "선건우" }, { order: 6, no: "20509", name: "김윤" },
+      { order: 7, no: "20526", name: "전영주" }, { order: 8, no: "20506", name: "김도경" },
+      { order: 9, no: "20521", name: "왕채이" }, { order: 10, no: "20533", name: "홍진우" },
+      { order: 11, no: "20519", name: "안승찬" }, { order: 12, no: "20507", name: "김도윤" },
+      { order: 13, no: "20532", name: "홍성원" }, { order: 14, no: "20525", name: "장동균" },
+      { order: 15, no: "20523", name: "이소율" }, { order: 16, no: "20512", name: "노경래" },
+      { order: 17, no: "20510", name: "김준희" }, { order: 18, no: "20501", name: "강채은" },
+      { order: 19, no: "20520", name: "오상민" }, { order: 20, no: "20529", name: "주혜린" },
+      { order: 21, no: "20505", name: "김나현" }, { order: 22, no: "20511", name: "김해리" },
+      { order: 23, no: "20502", name: "고준규" }, { order: 24, no: "20530", name: "진재원" },
+      { order: 25, no: "20531", name: "최형우" }, { order: 26, no: "20514", name: "범지우" },
+      { order: 27, no: "20527", name: "전예림" }, { order: 28, no: "20508", name: "김예서" },
+      { order: 29, no: "20516", name: "송민우" }, { order: 30, no: "20517", name: "신이현" },
+      { order: 31, no: "20522", name: "윤여명" }
+    ]
+  };
+
+  let currentClass = 1;
+
+  // 학급 명단 렌더링
+  function renderList(cls) {
+    const listEl = document.getElementById("studentList");
+    const data = classData[cls] || [];
+    
+    if(data.length === 0) {
+      listEl.innerHTML = '<div class="row" style="justify-content:center; color:var(--sub);">등록된 학생 데이터가 없습니다.</div>';
+      return;
+    }
+
+    listEl.innerHTML = data.map(item => `
+      <div class="row" data-class="${cls}" data-name="${item.name}" data-no="${item.no}">
+        <span class="class-badge">${cls}반</span>
+        <span class="order">${item.order}순위</span>
+        <span class="no">${item.no}</span>
+        <span class="name">${item.name}</span>
+      </div>
+    `).join('');
+  }
+
+  function selectClass(cls) {
+    currentClass = cls;
+    const btns = document.querySelectorAll("#classPicker button");
+    btns.forEach((b, idx) => {
+      b.classList.toggle("active", idx + 1 === cls);
+    });
+    document.getElementById("searchInput").value = "";
+    renderList(cls);
+  }
+
+  // 전체 검색 기능
+  function filterList() {
+    const query = document.getElementById("searchInput").value.trim().toLowerCase();
+    const listEl = document.getElementById("studentList");
+
+    if (query === "") {
+      renderList(currentClass);
+      return;
+    }
+
+    let allMatches = [];
+    Object.keys(classData).forEach(cls => {
+      classData[cls].forEach(student => {
+        if (student.name.toLowerCase().includes(query) || student.no.includes(query)) {
+          allMatches.push({ ...student, cls: cls });
+        }
+      });
+    });
+
+    if (allMatches.length === 0) {
+      listEl.innerHTML = '<div class="row" style="justify-content:center; color:var(--sub); padding: 20px;">전체 학급에서 일치하는 학생을 찾을 수 없습니다.</div>';
+      return;
+    }
+
+    listEl.innerHTML = allMatches.map(item => `
+      <div class="row" data-class="${item.cls}" data-name="${item.name}" data-no="${item.no}">
+        <span class="class-badge">${item.cls}반</span>
+        <span class="order">${item.order}순위</span>
+        <span class="no">${item.no}</span>
+        <span class="name">${item.name}</span>
+      </div>
+    `).join('');
+  }
+
+  // 로컬 저장 연동 체크리스트
+  function saveCheck(idx) {
+    const checks = JSON.parse(localStorage.getItem("eval_checks") || "{}");
+    const inputs = document.querySelectorAll("#checkList input");
+    checks[idx] = inputs[idx].checked;
+    localStorage.setItem("eval_checks", JSON.stringify(checks));
+  }
+
+  function loadChecks() {
+    const checks = JSON.parse(localStorage.getItem("eval_checks") || "{}");
+    const inputs = document.querySelectorAll("#checkList input");
+    inputs.forEach((input, idx) => {
+      if(checks[idx]) input.checked = true;
+    });
+  }
+
+  // 초기 실행
+  renderList(1);
+  loadChecks();
+</script>
+</body>
+</html>
